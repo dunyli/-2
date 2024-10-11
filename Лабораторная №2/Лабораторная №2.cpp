@@ -1,6 +1,28 @@
 ﻿// Лаба 2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 // Лабораторная №2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <iostream>
+#include "Header.h"
+
+// Функция для добавления нового клиента
+void add_client(struct Store* store) {
+    struct Client new_client;
+    printf("Введите имя клиента: ");
+    scanf("%s", new_client.name);
+    printf("Введите телефон клиента: ");
+    scanf("%s", new_client.phone);
+    printf("Введите адрес клиента: ");
+    scanf("%s", new_client.address);
+    // Добавление нового клиента в массив клиентов
+    store->clients[store->num_clients] = new_client;
+    store->num_clients++;
+    printf("Клиент добавлен!\n");
+}
+
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"

@@ -49,6 +49,32 @@ void add_supplier(struct Store* store) {
     printf("Поставщик добавлен!\n");
 }
 
+// Функция для добавления нового товара
+void add_product(struct Store* store) {
+    struct Product new_product;
+    int catogory_id, supplier_id;
+    printf("Введите ID категории: ");
+    scanf("%d", &catogory_id);
+    if (catogory_id > 0 && catogory_id <= store->num_categories) {
+        printf("Введите ID поставщика: ");
+        scanf("%d", &supplier_id);
+        if (supplier_id > 0 && supplier_id <= store->num_supplier) {
+            printf("Введите название товара: ");
+            scanf("%s", new_product.name);
+            printf("Введите цену товара: ");
+            scanf("%d", &new_product.price);
+            printf("Введите количество товара: ");
+            scanf("%d", &new_product.kolvo);
+            // Добавление нового товара в массив товаров
+            store->products[store->num_products] = new_product;
+            store->num_products++;
+            printf("Товар добавлен!\n");
+        }
+        else printf("Неверный ID поставщика!");
+    }
+    else printf("Неверный ID категории!\n");
+}
+
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"

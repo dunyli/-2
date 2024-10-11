@@ -163,6 +163,22 @@ void list_orders(struct OrderHistory* history) {
     }
 }
 
+// Функция для вывода списка товаров
+void list_products(struct Store* store) {
+    printf("Список товаров:\n");
+    for (int i = 0; i < store->num_products; i++) {
+        printf("ID: %d\n", i + 1);
+        printf("Категория: %s\n", store->categories[i].name);
+        printf("Поставщик: %s\n", store->suppliers[i].name);
+        printf("Название: %s\n", store->products[i].name);
+        printf("Цена: %d\n", store->products[i].price);
+        printf("Количество: %d\n", store->products[i].kolvo);
+        printf("\n");
+    }
+}
+
+
+
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 

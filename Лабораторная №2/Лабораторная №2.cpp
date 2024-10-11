@@ -23,6 +23,16 @@ void add_client(struct Store* store) {
     printf("Клиент добавлен!\n");
 }
 
+// Функция для добавления новой категории
+void add_category(struct Store* store) {
+    struct Category new_category;
+    printf("Введите название категории: ");
+    scanf("%s", new_category.name);
+    // Добавление новой категории в массив категорий
+    store->categories[store->num_categories] = new_category;
+    store->num_categories++;
+    printf("Категория добавлена!\n");
+}
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"

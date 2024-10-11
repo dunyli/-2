@@ -34,6 +34,22 @@ void add_category(struct Store* store) {
     printf("Категория добавлена!\n");
 }
 
+// Функция для добавления нового поставщика
+void add_supplier(struct Store* store) {
+    struct Supplier new_supplier;
+    printf("Введите название поставщика: ");
+    scanf("%s", new_supplier.name);
+    printf("Введите адрес поставщика: ");
+    scanf("%s", new_supplier.address);
+    printf("Введите телефон поставщика: ");
+    scanf("%s", new_supplier.phone);
+    // Добавление нового поставщика в массив поставщиков
+    store->suppliers[store->num_supplier] = new_supplier;
+    store->num_supplier++;
+    printf("Поставщик добавлен!\n");
+}
+
+
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 

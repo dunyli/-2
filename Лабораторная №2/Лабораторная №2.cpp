@@ -75,6 +75,47 @@ void add_product(struct Store* store) {
     else printf("Неверный ID категории!\n");
 }
 
+// Функция для создания нового заказа
+void create_order(struct OrderHistory* history) {
+    struct Order new_order;
+    int client_id, product_id, kolvo;
+    printf("Введите ID клиента: ");
+    scanf("%d", &client_id);
+    new_order.client_id = client_id;
+    new_order.num_products = 0;
+    new_order.total_price = 0;
+    printf("Введите ID товара (или 0 для завершения): ");
+    scanf("%d", &product_id);
+    while (product_id != 0) {
+        if (product_id > 0 && product_id <= history->num_products) {
+            printf("Введите количество товара: ");
+            scanf("%d", &kolvo);
+            if (kolvo > 0 && kolvo <= history->products[product_id - 1].kolvo) {
+                new_order.products[new_order.num_products] = history->products[product_id - 1];
+                new_order.products[new_order.num_products].kolvo = kolvo;
+                new_order.total_price += new_order.products[new_order.num_products].price * kolvo;
+                new_order.num_products++;
+                history->products[product_id - 1].kolvo -= kolvo;
+            }
+            else {
+                printf("Неверное количество товара!\n");
+            }
+        }
+        else {
+            printf("Неверный ID товара!\n");
+        }
+        printf("Введите ID товара (или 0 для завершения): ");
+        scanf("%d", &product_id);
+    }
+
+    // Добавление нового заказа в массив заказов
+    history->orders[history->orderCount] = new_order;
+    history->orderCount++;
+    printf("Заказ создан!\n");
+}
+
+
+
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"

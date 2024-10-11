@@ -126,6 +126,16 @@ void list_clients(struct Store* store) {
     }
 }
 
+// Функция для вывода списка категорий
+void list_category(struct Store* store) {
+    printf("Список категорий:\n");
+    for (int i = 0; i < store->num_categories; i++) {
+        printf("ID: %d\n", i + 1);
+        printf("Название категории: %s\n", store->categories[i].name);
+        printf("\n");
+    }
+}
+
 
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

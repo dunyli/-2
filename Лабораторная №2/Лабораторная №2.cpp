@@ -114,6 +114,17 @@ void create_order(struct OrderHistory* history) {
     printf("Заказ создан!\n");
 }
 
+// Функция для вывода списка клиентов
+void list_clients(struct Store* store) {
+    printf("Список клиентов:\n");
+    for (int i = 0; i < store->num_clients; i++) {
+        printf("ID: %d\n", i + 1);
+        printf("Имя: %s\n", store->clients[i].name);
+        printf("Телефон: %s\n", store->clients[i].phone);
+        printf("Адрес: %s\n", store->clients[i].address);
+        printf("\n");
+    }
+}
 
 
 

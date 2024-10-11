@@ -194,6 +194,60 @@ void outmenu() {
     printf("Выберите действие: ");
 }
 
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    system("chcp 1251");
+    struct Store store;
+    store.num_clients = 0;
+    store.num_categories = 0;
+    store.num_supplier = 0;
+    store.num_products = 0;
+    struct OrderHistory history;
+    history.num_products = 0;
+    int choice;
+    do {
+        outmenu();
+        scanf("%d", &choice);
+        switch (choice) {
+        case 1:
+            add_client(&store);
+            break;
+        case 2:
+            add_category(&store);
+            break;
+        case 3:
+            add_supplier(&store);
+            break;
+        case 4:
+            add_product(&store);
+            break;
+        case 5:
+            create_order(&history);
+            break;
+        case 6:
+            list_clients(&store);
+            break;
+        case 7:
+            list_category(&store);
+            break;
+        case 8:
+            list_supplier(&store);
+            break;
+        case 9:
+            list_products(&store);
+            break;
+        case 10:
+            list_orders(&history);
+            break;
+        case 0:
+            printf("Выход\n");
+            break;
+        default:
+            printf("Неверный выбор!\n");
+        }
+    } while (choice != 0);
+}
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"

@@ -136,6 +136,17 @@ void list_category(struct Store* store) {
     }
 }
 
+// Функция для вывода списка поставщиков
+void list_supplier(struct Store* store) {
+    printf("Список поставщиков:\n");
+    for (int i = 0; i < store->num_supplier; i++) {
+        printf("ID: %d\n", i + 1);
+        printf("Название поставщика: %s\n", store->suppliers[i].name);
+        printf("Адрес поставщика: %s\n", store->suppliers[i].address);
+        printf("Телефон поставщика: %s\n", store->suppliers[i].phone);
+        printf("\n");
+    }
+}
 
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
